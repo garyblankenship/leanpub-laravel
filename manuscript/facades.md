@@ -79,7 +79,7 @@ We need to be able to resolve this class from the IoC container. So, let's add a
 		return new \PaymentGateway\Payment;
 	});
 
-A great place to register this binding would be to create a new [service provider](#ioc#service-providers) named `PaymentServiceProvider`, and add this binding to the `register` method. You can then configure Laravel to load your service provider from the `app/config/app.php` configuration file.
+A great place to register this binding would be to create a new [service provider](#ioc) named `PaymentServiceProvider`, and add this binding to the `register` method. You can then configure Laravel to load your service provider from the `app/config/app.php` configuration file.
 
 Next, we can create our own facade class:
 
