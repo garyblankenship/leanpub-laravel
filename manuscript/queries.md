@@ -1,6 +1,6 @@
 # Query Builder {#queries}
 
-- [Introduction](#introduction)
+- [Introduction](#queries-introduction)
 - [Selects](#selects)
 - [Joins](#joins)
 - [Advanced Wheres](#advanced-wheres)
@@ -12,15 +12,13 @@
 - [Unions](#unions)
 - [Caching Queries](#caching-queries)
 
-<a name="introduction"></a>
-## Introduction
+## Introduction {#queries-introduction}
 
 The database query builder provides a convenient, fluent interface to creating and running database queries. It can be used to perform most database operations in your application, and works on all supported database systems.
 
 > **Note:** The Laravel query builder uses PDO parameter binding throughout to protect your application against SQL injection attacks. There is no need to clean strings being passed as bindings.
 
-<a name="selects"></a>
-## Selects
+## Selects {#selects}
 
 **Retrieving All Rows From A Table**
 
@@ -104,8 +102,7 @@ This method will return an array of role titles. You may also specify a custom k
 
 	$users = DB::table('users')->skip(10)->take(5)->get();
 
-<a name="joins"></a>
-## Joins
+## Joins {#joins}
 
 The query builder may also be used to write join statements. Take a look at the following examples:
 
@@ -125,8 +122,7 @@ You may also specify more advanced join clauses:
 	        })
 	        ->get();
 
-<a name="advanced-wheres"></a>
-## Advanced Wheres
+## Advanced Wheres {#advanced-wheres}
 
 Sometimes you may need to create more advanced where clauses such as "where exists" or nested parameter groupings. The Laravel query builder can handle these as well:
 
@@ -163,8 +159,7 @@ The query above will produce the following SQL:
 		select 1 from orders where orders.user_id = users.id
 	)
 
-<a name="aggregates"></a>
-## Aggregates
+## Aggregates {#aggregates}
 
 The query builder also provides a variety of aggregate methods, such as `count`, `max`, `min`, `avg`, and `sum`.
 
@@ -180,8 +175,7 @@ The query builder also provides a variety of aggregate methods, such as `count`,
 
 	$total = DB::table('users')->sum('votes');
 
-<a name="raw-expressions"></a>
-## Raw Expressions
+## Raw Expressions {#raw-expressions}
 
 Sometimes you may need to use a raw expression in a query. These expressions will be injected into the query as strings, so be careful not to create any SQL injection points! To create a raw expression, you may use the `DB::raw` method:
 
@@ -199,8 +193,7 @@ Sometimes you may need to use a raw expression in a query. These expressions wil
 
 	DB::table('users')->decrement('votes');
 
-<a name="inserts"></a>
-## Inserts
+## Inserts {#inserts}
 
 **Inserting Records Into A Table**
 
@@ -225,8 +218,7 @@ If the table has an auto-incrementing id, use `insertGetId` to insert a record a
 		array('email' => 'dayle@example.com', 'votes' => 0),
 	));
 
-<a name="updates"></a>
-## Updates
+## Updates {#updates}
 
 **Updating Records In A Table**
 
@@ -234,8 +226,7 @@ If the table has an auto-incrementing id, use `insertGetId` to insert a record a
 	            ->where('id', 1)
 	            ->update(array('votes' => 1));
 
-<a name="deletes"></a>
-## Deletes
+## Deletes {#deletes}
 
 **Deleting Records In A Table**
 
@@ -249,8 +240,7 @@ If the table has an auto-incrementing id, use `insertGetId` to insert a record a
 
 	DB::table('users')->truncate();
 
-<a name="unions"></a>
-## Unions
+## Unions {#unions}
 
 The query builder also provides a quick way to "union" two queries together:
 
@@ -262,8 +252,7 @@ The query builder also provides a quick way to "union" two queries together:
 
 The `unionAll` method is also available, and has the same method signature as `union`.
 
-<a name="caching-queries"></a>
-## Caching Queries
+## Caching Queries {#caching-queries}
 
 You may easily cache the results of a query using the `remember` method:
 

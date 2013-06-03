@@ -1,13 +1,12 @@
 # Events {#events}
 
-- [Basic Usage](#basic-usage)
+- [Basic Usage](#events-basic-usage)
 - [Wildcard Listeners](#wildcard-listeners)
 - [Using Classes As Listeners](#using-classes-as-listeners)
 - [Queued Events](#queued-events)
 - [Event Subscribers](#event-subscribers)
 
-<a name="basic-usage"></a>
-## Basic Usage
+## Basic Usage {#events-basic-usage}
 
 The Laravel `Event` class provides a simple observer implementation, allowing you to subscribe and listen for events in your application.
 
@@ -43,8 +42,7 @@ Sometimes, you may wish to stop the propagation of an event to other listeners. 
 		return false;
 	});
 
-<a name="wildcard-listeners"></a>
-## Wildcard Listeners
+## Wildcard Listeners {#wildcard-listeners}
 
 When registering an event listener, you may use asterisks to specify wildcard listeners:
 
@@ -57,8 +55,7 @@ When registering an event listener, you may use asterisks to specify wildcard li
 
 This listener will handle all events that begin with `foo.`. Note that the full event name is passed as the last argument to the handler.
 
-<a name="using-classes-as-listeners"></a>
-## Using Classes As Listeners
+## Using Classes As Listeners {#using-classes-as-listeners}
 
 In some cases, you may wish to use a class to handle an event rather than a Closure. Class event listeners will be resolved out of the [Laravel IoC container](#ioc), providing you the full power of dependency injection on your listeners.
 
@@ -85,8 +82,7 @@ If you do not wish to use the default `handle` method, you may specify the metho
 
 	Event::listen('user.login', 'LoginHandler@onLogin');
 
-<a name="queued-events"></a>
-## Queued Events
+## Queued Events {#queued-events}
 
 Using the `queue` and `flush` methods, you may "queue" an event for firing, but not fire it immediately:
 
@@ -105,8 +101,7 @@ Finally, you may run the "flusher" and flush all queued events using the `flush`
 
 	Event::flush('foo');
 
-<a name="event-subscribers"></a>
-## Event Subscribers
+## Event Subscribers {#event-subscribers}
 
 Event subscribers are classes that may subscribe to multiple events from within the class itself. Subscribers should define a `subscribe` method, which will be passed an event dispatcher instance:
 

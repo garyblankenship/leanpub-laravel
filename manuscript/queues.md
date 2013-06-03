@@ -1,13 +1,12 @@
 # Queues {#queues}
 
-- [Configuration](#configuration)
-- [Basic Usage](#basic-usage)
+- [Configuration](#queues-configuration)
+- [Basic Usage](#queues-basic-usage)
 - [Queueing Closures](#queueing-closures)
 - [Running The Queue Listener](#running-the-queue-listener)
 - [Push Queues](#push-queues)
 
-<a name="configuration"></a>
-## Configuration
+## Configuration {#queues-configuration}
 
 The Laravel Queue component provides a unified API across a variety of different queue services. Queues allow you to defer the processing of a time consuming task, such as sending an e-mail, until a later time, thus drastically speeding up the web requests to your application.
 
@@ -19,8 +18,7 @@ The following dependencies are needed for the listed queue drivers:
 - Amazon SQS: `aws/aws-sdk-php`
 - IronMQ: `iron-io/iron_mq`
 
-<a name="basic-usage"></a>
-## Basic Usage
+## Basic Usage {#queues-basic-usage}
 
 To push a new job onto the queue, use the `Queue::push` method:
 
@@ -90,8 +88,7 @@ You may also access the job identifier:
 
 	$job->getJobId();
 
-<a name="queueing-closures"></a>
-## Queueing Closures
+## Queueing Closures {#queueing-closures}
 
 You may also push a Closure onto the queue. This is very convenient for quick, simple tasks that need to be queued:
 
@@ -108,8 +105,7 @@ You may also push a Closure onto the queue. This is very convenient for quick, s
 
 When using Iron.io [push queues](#push-queues), you should take extra precaution queueing Closures. The end-point that receives your queue messages should check for a token to verify that the request is actually from Iron.io. For example, your push queue end-point should be something like: `https://yourapp.com/queue/receive?token=SecretToken`. You may then check the value of the secret token in your application before marshaling the queue request.
 
-<a name="running-the-queue-listener"></a>
-## Running The Queue Listener
+## Running The Queue Listener {#running-the-queue-listener}
 
 Laravel includes an Artisan task that will run new jobs as they are pushed onto the queue. You may run this task using the `queue:listen` command:
 
@@ -135,8 +131,7 @@ To process only the first job on the queue, you may use the `queue:work` command
 
 	php artisan queue:work
 
-<a name="push-queues"></a>
-## Push Queues
+## Push Queues {#push-queues}
 
 Push queues allow you to utilize the powerful Laravel 4 queue facilities without running any daemons or background listeners. Currently, push queues are only supported by the [Iron.io](http://iron.io) driver. Before getting started, create an Iron.io account, and add your Iron credentials to the `app/config/queue.php` configuration file.
 

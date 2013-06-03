@@ -4,8 +4,7 @@
 - [Blade Templating](#blade-templating)
 - [Other Blade Control Structures](#other-blade-control-structures)
 
-<a name="controller-layouts"></a>
-## Controller Layouts
+## Controller Layouts {#controller-layouts}
 
 One method of using templates in Laravel is via controller layouts. By specifying the `layout` property on the controller, the view specified will be created for you and will be the assumed response that should be returned from actions.
 
@@ -28,8 +27,7 @@ One method of using templates in Laravel is via controller layouts. By specifyin
 
 	}
 
-<a name="blade-templating"></a>
-## Blade Templating
+## Blade Templating {#blade-templating}
 
 Blade is a simple, yet powerful templating engine provided with Laravel. Unlike controller layouts, Blade is driven by _template inheritance_ and _sections_. All Blade templates should use the `.blade.php` extension.
 
@@ -65,8 +63,7 @@ Blade is a simple, yet powerful templating engine provided with Laravel. Unlike 
 
 Note that views which `extend` a Blade layout simply override sections from the layout. Content of the layout can be included in a child view using the `@parent` directive in a section, allowing you to append to the contents of a layout section such as a sidebar or footer.
 
-<a name="other-blade-control-structures"></a>
-## Other Blade Control Structures
+## Other Blade Control Structures {#other-blade-control-structures}
 
 **Echoing Data**
 

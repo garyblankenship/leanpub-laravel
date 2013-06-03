@@ -11,8 +11,7 @@
 - [Buttons](#buttons)
 - [Custom Macros](#custom-macros)
 
-<a name="opening-a-form"></a>
-## Opening A Form
+## Opening A Form {#opening-a-form}
 
 **Opening A Form**
 
@@ -36,8 +35,7 @@ If your form is going to accept file uploads, add a `files` option to your array
 
 	echo Form::open(array('url' => 'foo/bar', 'files' => true))
 
-<a name="csrf-protection"></a>
-## CSRF Protection
+## CSRF Protection {#csrf-protection}
 
 Laravel provides an easy method of protecting your application from cross-site request forgeries. First, a random token is placed in your user's session. Don't sweat it, this is done automatically. The CSRF token will be added to your forms as a hidden field automatically. However, if you wish to generate the HTML for the hidden field, you may use the `token` method:
 
@@ -52,8 +50,7 @@ Laravel provides an easy method of protecting your application from cross-site r
 		//
 	}));
 
-<a name="form-model-binding"></a>
-## Form Model Binding
+## Form Model Binding {#form-model-binding}
 
 Often, you will want to populate a form based on the contents of a model. To do so, use the `Form::model` method:
 
@@ -71,8 +68,7 @@ This allows you to quickly build forms that not only bind to model values, but e
 
 > **Note:** When using `Form::model`, be sure to close your form with `Form::close`!
 
-<a name="labels"></a>
-## Labels
+## Labels {#labels}
 
 **Generating A Label Element**
 
@@ -84,8 +80,7 @@ This allows you to quickly build forms that not only bind to model values, but e
 
 > **Note:** After creating a label, any form element you create with a name matching the label name will automatically receive an ID matching the label name as well.
 
-<a name="text"></a>
-## Text, Text Area, Password & Hidden Fields
+## Text, Text Area, Password & Hidden Fields {#text}
 
 **Generating A Text Input**
 
@@ -101,8 +96,7 @@ This allows you to quickly build forms that not only bind to model values, but e
 
 	echo Form::password('password');
 
-<a name="checkboxes-and-radio-buttons"></a>
-## Checkboxes and Radio Buttons
+## Checkboxes and Radio Buttons {#checkboxes-and-radio-buttons}
 
 **Generating A Checkbox Or Radio Input**
 
@@ -116,15 +110,13 @@ This allows you to quickly build forms that not only bind to model values, but e
 
 	echo Form::radio('name', 'value', true);
 
-<a name="file-input"></a>
-## File Input
+## File Input {#file-input}
 
 **Generating A File Input**
 
 	echo Form::file('image');
 
-<a name="drop-down-lists"></a>
-## Drop-Down Lists
+## Drop-Down Lists {#drop-down-lists}
 
 **Generating A Drop-Down List**
 
@@ -141,8 +133,7 @@ This allows you to quickly build forms that not only bind to model values, but e
 		'Dogs' => array('spaniel' => 'Spaniel'),
 	));
 
-<a name="buttons"></a>
-## Buttons
+## Buttons {#buttons}
 
 **Generating A Submit Button**
 
@@ -150,8 +141,7 @@ This allows you to quickly build forms that not only bind to model values, but e
 
 > **Note:** Need to create a button element? Try the *button* method. It has the same signature as *submit*.
 
-<a name="custom-macros"></a>
-## Custom Macros
+## Custom Macros {#custom-macros}
 
 It's easy to define your own custom Form class helpers called "macros". Here's how it works. First, simply register the macro with a given name and a Closure:
 

@@ -11,8 +11,7 @@
 - [Throwing 404 Errors](#throwing-404-errors)
 - [Routing To Controllers](#routing-to-controllers)
 
-<a name="basic-routing"></a>
-## Basic Routing
+## Basic Routing {#basic-routing}
 
 Most of the routes for your application will be defined in the `app/routes.php` file. The simplest Laravel routes consist of a URI and a Closure callback.
 
@@ -48,8 +47,7 @@ Often, you will need to generate URLs to your routes, you may do so using the `U
 
 	$url = URL::to('foo');
 
-<a name="route-parameters"></a>
-## Route Parameters
+## Route Parameters {#route-parameters}
 
 	Route::get('user/{id}', function($id)
 	{
@@ -84,8 +82,7 @@ Often, you will need to generate URLs to your routes, you may do so using the `U
 	})
 	->where('id', '[0-9]+');
 
-<a name="route-filters"></a>
-## Route Filters
+## Route Filters {#route-filters}
 
 Route filters provide a convenient way of limiting access to a given route, which is useful for creating areas of your site which require authentication. There are several filters included in the Laravel framework, including an `auth` filter, an `auth.basic` filter, a `guest` filter, and a `csrf`filter. These are located in the `app/filters.php` file.
 
@@ -170,8 +167,7 @@ For advanced filtering, you may wish to use a class instead of a Closure. Since 
 
 	Route::filter('foo', 'FooFilter');
 
-<a name="named-routes"></a>
-## Named Routes
+## Named Routes {#named-routes}
 
 Named routes make referring to routes when generating redirects or URLs more convenient. You may specify a name for a route like so:
 
@@ -194,8 +190,7 @@ You may access the name of a route that is running via the `currentRouteName` me
 
 	$name = Route::currentRouteName();
 
-<a name="route-groups"></a>
-## Route Groups
+## Route Groups {#route-groups}
 
 Sometimes you may need to apply filters to a group of routes. Instead of specifying the filter on each route, you may use a route group:
 
@@ -212,8 +207,7 @@ Sometimes you may need to apply filters to a group of routes. Instead of specify
 		});
 	});
 
-<a name="sub-domain-routing"></a>
-## Sub-Domain Routing
+## Sub-Domain Routing {#sub-domain-routing}
 
 Laravel routes are also able to handle wildcard sub-domains, and pass you wildcard parameters from the domain:
 
@@ -228,8 +222,8 @@ Laravel routes are also able to handle wildcard sub-domains, and pass you wildca
 		});
 
 	});
-<a name="route-prefixing"></a>
-## Route Prefixing
+
+## Route Prefixing {#route-prefixing}
 
 A group of routes may be prefixed by using the `prefix` option in the attributes array of a group:
 
@@ -245,8 +239,7 @@ A group of routes may be prefixed by using the `prefix` option in the attributes
 
 	});
 
-<a name="route-model-binding"></a>
-## Route Model Binding
+## Route Model Binding {#route-model-binding}
 
 Model binding provides a convenient way to inject model instances into your routes. For example, instead of injecting a user's ID, you can inject the entire User model instance that matches the given ID. First, use the `Route::model` method to specify the model that should be used for a given parameter:
 
@@ -279,8 +272,7 @@ Sometimes you may wish to use your own resolver for route parameters. Simply use
 		return User::where('name', $value)->first();
 	});
 
-<a name="throwing-404-errors"></a>
-## Throwing 404 Errors
+## Throwing 404 Errors {#throwing-404-errors}
 
 There are two ways to manually trigger a 404 error from a route. First, you may use the `App::abort` method:
 
@@ -288,11 +280,10 @@ There are two ways to manually trigger a 404 error from a route. First, you may 
 
 Second, you may throw an instance of `Symfony\Component\HttpKernel\Exception\NotFoundHttpException`.
 
-More information on handling 404 exceptions and using custom responses for these errors may be found in the [errors](#errors) section of the documentation.
+More information on handling 404 exceptions and using custom responses for these errors may be found in the [errors](#handling-404-errors) section of the documentation.
 
-<a name="routing-to-controllers"></a>
-## Routing To Controllers
+## Routing To Controllers {#routing-to-controllers}
 
-Laravel allows you to not only route to Closures, but also to controller classes, and even allows the creation of [resource controllers](#controllers).
+Laravel allows you to not only route to Closures, but also to controller classes, and even allows the creation of [resource controllers](#resource-controllers).
 
 See the documentation on [Controllers](#controllers) for more details.

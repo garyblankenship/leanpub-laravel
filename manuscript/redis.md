@@ -1,19 +1,17 @@
 # Redis {#redis}
 
-- [Introduction](#introduction)
-- [Configuration](#configuration)
-- [Usage](#usage)
+- [Introduction](#redis-introduction)
+- [Configuration](#redis-configuration)
+- [Usage](#redis-usage)
 - [Pipelining](#pipelining)
 
-<a name="introduction"></a>
-## Introduction
+## Introduction {#redis-introduction}
 
 [Redis](http://redis.io) is an open source, advanced key-value store. It is often referred to as a data structure server since keys can contain [strings](http://redis.io/topics/data-types#strings), [hashes](http://redis.io/topics/data-types#hashes), [lists](http://redis.io/topics/data-types#lists), [sets](http://redis.io/topics/data-types#sets), and [sorted sets](http://redis.io/topics/data-types#sorted-sets).
 
 > **Note:** If you have the Redis PHP extension installed via PECL, you will need to rename the alias for Redis in your `app/config/app.php` file.
 
-<a name="configuration"></a>
-## Configuration
+## Configuration {#redis-configuration}
 
 The Redis configuration for your application is stored in the **app/config/database.php** file. Within this file, you will see a **redis** array containing the Redis servers used by your application:
 
@@ -29,8 +27,7 @@ The default server configuration should suffice for development. However, you ar
 
 The `cluster` option will tell the Laravel Redis client to perform client-side sharding across your Redis nodes, allowing you to pool nodes and create a large amount of available RAM. However, note that client-side sharding does not handle failover; therefore, is primarily suited for cached data that is available from another primary data store.
 
-<a name="usage"></a>
-## Usage
+## Usage {#redis-usage}
 
 You may get a Redis instance by calling the `Redis::connection` method:
 
@@ -62,8 +59,7 @@ When you are simply executing commands against the default connection, just use 
 
 > **Note:** Redis [cache](#cache) and [session](#session) drivers are included with Laravel.
 
-<a name="pipelining"></a>
-## Pipelining
+## Pipelining {#pipelining}
 
 Pipelining should be used when you need to send many commands to the server in one operation. To get started, use the `pipeline` command:
 

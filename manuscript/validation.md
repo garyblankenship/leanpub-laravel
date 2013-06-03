@@ -1,14 +1,13 @@
 # Validation {#validation}
 
-- [Basic Usage](#basic-usage)
+- [Basic Usage](#validation-basic-usage)
 - [Working With Error Messages](#working-with-error-messages)
 - [Error Messages & Views](#error-messages-and-views)
 - [Available Validation Rules](#available-validation-rules)
 - [Custom Error Messages](#custom-error-messages)
 - [Custom Validation Rules](#custom-validation-rules)
 
-<a name="basic-usage"></a>
-## Basic Usage
+## Basic Usage {#validation-basic-usage}
 
 Laravel ships with a simple, convenient facility for validating data and retrieving validation error messages via the `Validation` class.
 
@@ -49,8 +48,7 @@ You may also access an array of the failed validation rules, without messages. T
 
 The `Validator` class provides several rules for validating files, such as `size`, `mimes`, and others. When validating files, you may simply pass them into the validator with your other data.
 
-<a name="working-with-error-messages"></a>
-## Working With Error Messages
+## Working With Error Messages {#working-with-error-messages}
 
 After calling the `messages` method on a `Validator` instance, you will receive a `MessageBag` instance, which has a variety of convenient methods for working with error messages.
 
@@ -92,8 +90,7 @@ After calling the `messages` method on a `Validator` instance, you will receive 
 		//
 	}
 
-<a name="error-messages-and-views"></a>
-## Error Messages & Views
+## Error Messages & Views {#error-messages-and-views}
 
 Once you have performed validation, you will need an easy way to get the error messages back to your views. This is conveniently handled by Laravel. Consider the following routes as an example:
 
@@ -122,8 +119,7 @@ So, after redirection, you may utilize the automatically bound `$errors` variabl
 
 	<?php echo $errors->first('email'); ?>
 
-<a name="available-validation-rules"></a>
-## Available Validation Rules
+## Available Validation Rules {#available-validation-rules}
 
 Below is a list of all available validation rules and their function:
 
@@ -159,73 +155,59 @@ Below is a list of all available validation rules and their function:
 - [Unique (Database)](#rule-unique)
 - [URL](#rule-url)
 
-<a name="rule-accepted"></a>
-#### accepted
+#### accepted {#rule-accepted}
 
 The field under validation must be _yes_, _on_, or _1_. This is useful for validating "Terms of Service" acceptance.
 
-<a name="rule-active-url"></a>
-#### active_url
+#### active_url {#rule-active-url}
 
 The field under validation must be a valid URL according to the `checkdnsrr` PHP function.
 
-<a name="rule-after"></a>
-#### after:_date_
+#### after:_date_ {#rule-after}
 
 The field under validation must be a value after a given date. The dates will be passed into the PHP `strtotime` function.
 
-<a name="rule-alpha"></a>
-#### alpha
+#### alpha {#rule-alpha}
 
 The field under validation must be entirely alphabetic characters.
 
-<a name="rule-alpha-dash"></a>
-#### alpha_dash
+#### alpha_dash {#rule-alpha-dash}
 
 The field under validation may have alpha-numeric characters, as well as dashes and underscores.
 
-<a name="rule-alpha-num"></a>
-#### alpha_num
+#### alpha_num {#rule-alpha-num}
 
 The field under validation must be entirely alpha-numeric characters.
 
-<a name="rule-before"></a>
-#### before:_date_
+#### before:_date_ {#rule-before}
 
 The field under validation must be a value preceding the given date. The dates will be passed into the PHP `strtotime` function.
 
-<a name="rule-between"></a>
-#### between:_min_,_max_
+#### between:_min_,_max_ {#rule-between}
 
 The field under validation must have a size between the given _min_ and _max_. Strings, numerics, and files are evaluated in the same fashion as the `size` rule.
 
-<a name="rule-confirmed"></a>
-#### confirmed
+#### confirmed {#rule-confirmed}
 
 The field under validation must have a matching field of `foo_confirmation`. For example, if the field under validation is `password`, a matching `password_confirmation` field must be present in the input.
 
-<a name="rule-date"></a>
-#### date
+#### date {#rule-date}
 
 The field under validation must be a valid date according to the `strtotime` PHP function.
 
-<a name="rule-date-format"></a>
-#### date_format:_format_
+#### date_format:_format_ {#rule-date-format}
 
 The field under validation must match the _format_ defined according to the `date_parse_from_format` PHP function.
 
-<a name="rule-different"></a>
-#### different:_field_
+#### different:_field_ {#rule-different}
 
 The given _field_ must be different than the field under validation.
 
-<a name="rule-email"></a>
-#### email
+#### email {#rule-email}
 
 The field under validation must be formatted as an e-mail address.
 
-<a name="rule-exists"></a>
-#### exists:_table_,_column_
+#### exists:_table_,_column_ {#rule-exists}
 
 The field under validation must exists on a given database table.
 
@@ -241,33 +223,27 @@ You may also specify more conditions that will be added as "where" clauses to th
 
 	'email' => 'exists:staff,email,account_id,1'
 
-<a name="rule-image"></a>
-#### image
+#### image {#rule-image}
 
 The file under validation must be an image (jpeg, png, bmp, or gif)
 
-<a name="rule-in"></a>
-#### in:_foo_,_bar_,...
+#### in:_foo_,_bar_,... {#rule-in}
 
 The field under validation must be included in the given list of values.
 
-<a name="rule-integer"></a>
-#### integer
+#### integer {#rule-integer}
 
 The field under validation must have an integer value.
 
-<a name="rule-ip"></a>
-#### ip
+#### ip {#rule-ip}
 
 The field under validation must be formatted as an IP address.
 
-<a name="rule-max"></a>
-#### max:_value_
+#### max:_value_ {#rule-max}
 
 The field under validation must be less than a maximum _value_. Strings, numerics, and files are evaluated in the same fashion as the `size` rule.
 
-<a name="rule-mimes"></a>
-#### mimes:_foo_,_bar_,...
+#### mimes:_foo_,_bar_,... {#rule-mimes}
 
 The file under validation must have a MIME type corresponding to one of the listed extensions.
 
@@ -275,55 +251,45 @@ The file under validation must have a MIME type corresponding to one of the list
 
 	'photo' => 'mimes:jpeg,bmp,png'
 
-<a name="rule-min"></a>
-#### min:_value_
+#### min:_value_ {#rule-min}
 
 The field under validation must have a minimum _value_. Strings, numerics, and files are evaluated in the same fashion as the `size` rule.
 
-<a name="rule-not-in"></a>
-#### not_in:_foo_,_bar_,...
+#### not_in:_foo_,_bar_,... {#rule-not-in}
 
 The field under validation must not be included in the given list of values.
 
-<a name="rule-numeric"></a>
-#### numeric
+#### numeric {#rule-numeric}
 
 The field under validation must have a numeric value.
 
-<a name="rule-regex"></a>
-#### regex:_pattern_
+#### regex:_pattern_ {#rule-regex}
 
 The field under validation must match the given regular expression.
 
 **Note:** When using the `regex` pattern, it may be necessary to specify rules in an array instead of using pipe delimiters, especially if the regular expression contains a pipe character.
 
-<a name="rule-required"></a>
-#### required
+#### required {#rule-required}
 
 The field under validation must be present in the input data.
 
-<a name="rule-required-if"></a>
-#### required_if:_field_,_value_
+#### required_if:_field_,_value_ {#rule-required-if}
 
 The field under validation must be present if the _field_ field is equal to _value_.
 
-<a name="rule-required-with"></a>
-#### required_with:_foo_,_bar_,...
+#### required_with:_foo_,_bar_,... {#rule-required-with}
 
 The field under validation must be present _only if_ the other specified fields are present.
 
-<a name="rule-same"></a>
-#### same:_field_
+#### same:_field_ {#rule-same}
 
 The given _field_ must match the field under validation.
 
-<a name="rule-size"></a>
-#### size:_value_
+#### size:_value_ {#rule-size}
 
 The field under validation must have a size matching the given _value_. For string data, _value_ corresponds to the number of characters. For numeric data, _value_ corresponds to a given integer value. For files, _size_ corresponds to the file size in kilobytes.
 
-<a name="rule-unique"></a>
-#### unique:_table_,_column_,_except_,_idColumn_
+#### unique:_table_,_column_,_except_,_idColumn_ {#rule-unique}
 
 The field under validation must be unique on a given database table. If the `column` option is not specified, the field name will be used.
 
@@ -339,13 +305,11 @@ The field under validation must be unique on a given database table. If the `col
 
 	'email' => 'unique:users,email_address,10'
 
-<a name="rule-url"></a>
-#### url
+#### url {#rule-url}
 
 The field under validation must be formatted as an URL.
 
-<a name="custom-error-messages"></a>
-## Custom Error Messages
+## Custom Error Messages {#custom-error-messages}
 
 If needed, you may use custom error messages for validation instead of the defaults. There are several ways to specify custom messages.
 
@@ -386,8 +350,7 @@ In some cases, you may wish to specify your custom messages in a language file i
 		),
 	),
 
-<a name="custom-validation-rules"></a>
-## Custom Validation Rules
+## Custom Validation Rules {#custom-validation-rules}
 
 Laravel provides a variety of helpful validation rules; however, you may wish to specify some of your own. One method of registering custom validation rules is using the `Validator::extend` method:
 

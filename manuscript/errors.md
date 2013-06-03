@@ -6,13 +6,11 @@
 - [Handling 404 Errors](#handling-404-errors)
 - [Logging](#logging)
 
-<a name="error-detail"></a>
-## Error Detail
+## Error Detail {#error-detail}
 
 By default, error detail is enabled for your application. This means that when an error occurs you will be shown an error page with a detailed stack trace and error message. You may turn off error details by setting the `debug` option in your `app/config/app.php` file to `false`. **It is strongly recommended that you turn off error detail in a production environment.**
 
-<a name="handling-errors"></a>
-## Handling Errors
+## Handling Errors {#handling-errors}
 
 By default, the `app/start/global.php` file contains an error handler for all exceptions:
 
@@ -44,8 +42,7 @@ To listen for PHP fatal errors, you may use the `App::fatal` method:
 		//
 	});
 
-<a name="http-exceptions"></a>
-## HTTP Exceptions
+## HTTP Exceptions {#http-exceptions}
 
 Exceptions in respect to HTTP, refer to errors that may occur during a client request. This may be a page not found error (404), an unauthorized error (401) or even a generated 500 error. In order to return such a response, use the following:
 
@@ -59,8 +56,7 @@ In order to raise a 401 Unauthorized exception, just do the following:
 
 These exceptions can be executed at any time during the request's lifecycle.
 
-<a name="handling-404-errors"></a>
-## Handling 404 Errors
+## Handling 404 Errors {#handling-404-errors}
 
 You may register an error handler that handles all "404 Not Found" errors in your application, allowing you to return custom 404 error pages:
 
@@ -69,8 +65,7 @@ You may register an error handler that handles all "404 Not Found" errors in you
 		return Response::view('errors.missing', array(), 404);
 	});
 
-<a name="logging"></a>
-## Logging
+## Logging {#logging}
 
 The Laravel logging facilities provide a simple layer on top of the powerful [Monolog](http://github.com/seldaek/monolog). By default, Laravel is configured to create daily log files for your application, and these files are stored in `app/storage/logs`. You may write information to these logs like so:
 

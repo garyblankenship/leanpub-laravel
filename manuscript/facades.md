@@ -1,13 +1,12 @@
 # Facades {#facades}
 
-- [Introduction](#introduction)
+- [Introduction](#facades-introduction)
 - [Explanation](#explanation)
 - [Practical Usage](#practical-usage)
 - [Creating Facades](#creating-facades)
 - [Mocking Facades](#mocking-facades)
 
-<a name="introduction"></a>
-## Introduction
+## Introduction {#facades-introduction}
 
 Facades provide a "static" interface to classes that are available in the application's [IoC container](#ioc). Laravel ships with many facades, and you have probably been using them without even knowing it!
 
@@ -15,15 +14,13 @@ Occasionally, You may wish to create your own facades for your applications and 
 
 > **Note:** Before digging into facades, it is strongly recommended that you become very familiar with the Laravel [IoC container](#ioc).
 
-<a name="explanation"></a>
-## Explanation
+## Explanation {#explanation}
 
 In the context of a Laravel application, a facade is a class that provides access to an object from the container. The machinery that makes this work is in the `Facade` class. Laravel's facades, and any custom facades you create, will extend the base `Facade` class.
 
 Your facade class only needs to implement a single method: `getFacadeAccessor`. It's the `getFacadeAccessor` method's job to define what to resolve from the container. The `Facade` base class makes use of the `__callStatic()` magic-method to defer calls from your facade to the resolved object.
 
-<a name="practical-usage"></a>
-## Practical Usage
+## Practical Usage {#practical-usage}
 
 In the example below, a call is made to the Laravel cache system. By glancing at this code, one might assume that the static method `get` is being called on the `Cache` class.
 
@@ -50,8 +47,7 @@ So, our `Cache::get` call could be re-written like so:
 
 	$value = $app->make('cache')->get('key');
 
-<a name="creating-facades"></a>
-## Creating Facades
+## Creating Facades {#creating-facades}
 
 Creating a facade for your own application or package is simple. You only need 3 things:
 
@@ -79,7 +75,7 @@ We need to be able to resolve this class from the IoC container. So, let's add a
 		return new \PaymentGateway\Payment;
 	});
 
-A great place to register this binding would be to create a new [service provider](#ioc) named `PaymentServiceProvider`, and add this binding to the `register` method. You can then configure Laravel to load your service provider from the `app/config/app.php` configuration file.
+A great place to register this binding would be to create a new [service provider](#service-providers) named `PaymentServiceProvider`, and add this binding to the `register` method. You can then configure Laravel to load your service provider from the `app/config/app.php` configuration file.
 
 Next, we can create our own facade class:
 
@@ -95,7 +91,6 @@ Finally, if we wish, we can add an alias for our facade to the `aliases` array i
 
 	Payment::process();
 
-<a name="mocking-facades"></a>
-## Mocking Facades
+## Mocking Facades {#mocking-facades}
 
-Unit testing is an important aspect of why facades work the way that they do. In fact, testability is the primary reason for facades to even exist. For more information, check out the [mocking facadestesting#mocking-facades) section of the documentation.
+Unit testing is an important aspect of why facades work the way that they do. In fact, testability is the primary reason for facades to even exist. For more information, check out the [mocking facades](#mocking-facades) section of the documentation.

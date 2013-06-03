@@ -1,20 +1,18 @@
 # Cache {#cache}
 
-- [Configuration](#configuration)
+- [Configuration](#cache-configuration)
 - [Cache Usage](#cache-usage)
 - [Increments & Decrements](#increments-and-decrements)
 - [Cache Sections](#cache-sections)
 - [Database Cache](#database-cache)
 
-<a name="configuration"></a>
-## Configuration
+## Configuration {#cache-configuration}
 
 Laravel provides a unified API for various caching systems. The cache configuration is located at `app/config/cache.php`. In this file you may specify which cache driver you would like used by default throughout your application. Laravel supports popular caching backends like [Memcached](http://memcached.org) and [Redis](http://redis.io) out of the box.
 
 The cache configuration file also contains various other options, which are documented within the file, so make sure to read over these options. By default, Laravel is configured to use the `file` cache driver, which stores the serialized, cached objects in the filesystem. For larger applications, it is recommended that you use an in-memory cache such as Memcached or APC.
 
-<a name="cache-usage"></a>
-## Cache Usage
+## Cache Usage {#cache-usage}
 
 **Storing An Item In The Cache**
 
@@ -65,8 +63,7 @@ Note that all items stored in the cache are serialized, so you are free to store
 
 	Cache::forget('key');
 
-<a name="increments-and-decrements"></a>
-## Increments & Decrements
+## Increments & Decrements {#increments-and-decrements}
 
 All drivers except `file` and `database` support the `increment` and `decrement` operations:
 
@@ -82,8 +79,7 @@ All drivers except `file` and `database` support the `increment` and `decrement`
 
 	Cache::decrement('key', $amount);
 
-<a name="cache-sections"></a>
-## Cache Sections
+## Cache Sections {#cache-sections}
 
 > **Note:** Cache sections are not supported when using the `file` or `database` cache drivers.
 
@@ -105,8 +101,7 @@ Then you may flush all items in the section:
 
 	Cache::section('people')->flush();
 
-<a name="database-cache"></a>
-## Database Cache
+## Database Cache {#database-cache}
 
 When using the `database` cache driver, you will need to setup a table to contain the cache items. Below is an example `Schema` declaration for the table:
 

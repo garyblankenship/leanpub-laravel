@@ -1,17 +1,15 @@
 # Artisan Development {#commands}
 
-- [Introduction](#introduction)
+- [Introduction](#commands-introduction)
 - [Building A Command](#building-a-command)
 - [Registering Commands](#registering-commands)
 - [Calling Other Commands](#calling-other-commands)
 
-<a name="introduction"></a>
-## Introduction
+## Introduction {#commands-introduction}
 
 In addition to the commands provided with Artisan, you may also build your own custom commands for working with your application. You may store your custom commands in the `app/commands` directory; however, you are free to choose your own storage location as long as your commands can be autoloaded based on your `composer.json` settings.
 
-<a name="building-a-command"></a>
-## Building A Command
+## Building A Command {#building-a-command}
 
 ### Generating The Class
 
@@ -110,8 +108,7 @@ You may also specify a default value to the `confirm` method, which should be `t
 
 	$this->confirm($question, true);
 
-<a name="registering-commands"></a>
-## Registering Commands
+## Registering Commands {#registering-commands}
 
 Once your command is finished, you need to register it with Artisan so it will be available for use. This is typically done in the `app/start/artisan.php` file. Within this file, you may use the `Artisan::add` method to register the command:
 
@@ -125,8 +122,7 @@ If your command is registered in the application [IoC container](#ioc), you may 
 
 	Artisan::resolve('binding.name');
 
-<a name="calling-other-commands"></a>
-## Calling Other Commands
+## Calling Other Commands {#calling-other-commands}
 
 Sometimes you may wish to call other commands from your command. You may do so using the `call` method:
 

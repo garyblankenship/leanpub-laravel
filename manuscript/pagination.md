@@ -1,18 +1,16 @@
 # Pagination {#pagination}
 
-- [Configuration](#configuration)
-- [Usage](#usage)
+- [Configuration](#pagination-configuration)
+- [Usage](#pagination-usage)
 - [Appending To Pagination Links](#appending-to-pagination-links)
 
-<a name="configuration"></a>
-## Configuration
+## Configuration {#pagination-configuration}
 
 In other frameworks, pagination can be very painful. Laravel makes it a breeze. There is a single configuration option in the `app/config/view.php` file. The `pagination` option specifies which view should be used to create pagination links. By default, Laravel includes two views.
 
 The `pagination::slider` view will show an intelligent "range" of links based on the current page, while the `pagination::simple` view will simply show "previous" and "next" buttons. **Both views are compatible with Twitter Bootstrap out of the box.**
 
-<a name="usage"></a>
-## Usage
+## Usage {#pagination-usage}
 
 There are several ways to paginate items. The simplest is by using the `paginate` method on the query builder or an Eloquent model.
 
@@ -53,8 +51,7 @@ Sometimes you may wish to create a pagination instance manually, passing it an a
 
 	$paginator = Paginator::make($items, $totalItems, $perPage);
 
-<a name="appending-to-pagination-links"></a>
-## Appending To Pagination Links
+## Appending To Pagination Links {#appending-to-pagination-links}
 
 You can add to the query string of pagination links using the `appends` method on the Paginator:
 

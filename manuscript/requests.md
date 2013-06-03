@@ -6,8 +6,7 @@
 - [Files](#files)
 - [Request Information](#request-information)
 
-<a name="basic-input"></a>
-## Basic Input
+## Basic Input {#basic-input}
 
 You may access all user input with a few simple methods. You do not need to worry about the HTTP verb used for the request, as input is accessed in the same way for all verbs.
 
@@ -38,8 +37,7 @@ You may access all user input with a few simple methods. You do not need to worr
 
 Some JavaScript libraries such as Backbone may send input to the application as JSON. You may access this data via `Input::get` like normal.
 
-<a name="cookies"></a>
-## Cookies
+## Cookies {#cookies}
 
 All cookies created by the Laravel framework are encrypted and signed with an authentication code, meaning they will be considered invalid if they have been changed by the client.
 
@@ -57,8 +55,7 @@ All cookies created by the Laravel framework are encrypted and signed with an au
 
 	$cookie = Cookie::forever('name', 'value');
 
-<a name="old-input"></a>
-## Old Input
+## Old Input {#old-input}
 
 You may need to keep input from one request until the next request. For example, you may need to re-populate a form after checking it for validation errors.
 
@@ -84,8 +81,7 @@ Since you often will want to flash input in association with a redirect to the p
 
 	Input::old('username');
 
-<a name="files"></a>
-## Files
+## Files {#files}
 
 **Retrieving An Uploaded File**
 
@@ -118,8 +114,7 @@ The object returned by the `file` method is an instance of the `Symfony\Componen
 
 	$mime = Input::file('photo')->getMimeType();
 
-<a name="request-information"></a>
-## Request Information
+## Request Information {#request-information}
 
 The `Request` class provides many methods for examining the HTTP request for your application and extends the `Symfony\Component\HttpFoundation\Request` class. Here are some of the highlights.
 

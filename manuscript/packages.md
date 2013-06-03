@@ -1,6 +1,6 @@
 # Package Development {#packages}
 
-- [Introduction](#introduction)
+- [Introduction](#packages-introduction)
 - [Creating A Package](#creating-a-package)
 - [Package Structure](#package-structure)
 - [Service Providers](#service-providers)
@@ -12,8 +12,7 @@
 - [Package Assets](#package-assets)
 - [Publishing Packages](#publishing-packages)
 
-<a name="introduction"></a>
-## Introduction
+## Introduction {#packages-introduction}
 
 Packages are the primary way of adding functionality to Laravel. Packages might be anything from a great way to work with dates like [Carbon](https://github.com/briannesbitt/Carbon), or an entire BDD testing framework like [Behat](https://github.com/Behat/Behat).
 
@@ -23,8 +22,7 @@ On the other hand, other packages are specifically intended for use with Laravel
 
 All Laravel packages are distributed via [Packagist](http://packagist.org) and [Composer](http://getcomposer.org), so learning about these wonderful PHP package distribution tools is essential.
 
-<a name="creating-a-package"></a>
-## Creating A Package
+## Creating A Package {#creating-a-package}
 
 The easiest way to create a new package for use with Laravel is the `workbench` Artisan command. First, you will need to set a few options in the `app/config/workbench.php` file. In that file, you will find a `name` and `email` option. These values will be used to generate a `composer.json` file for your new package. Once you have supplied those values, you are ready to build a workbench package!
 
@@ -38,8 +36,7 @@ Once the `workbench` command has been executed, your package will be available w
 
 Once the provider has been registered, you are ready to start developing your package! However, before diving in, you may wish to review the sections below to get more familiar with the package structure and development workflow.
 
-<a name="package-structure"></a>
-## Package Structure
+## Package Structure {#package-structure}
 
 When using the `workbench` command, your package will be setup with conventions that allow the package to integrate well with other parts of the Laravel framework:
 
@@ -58,8 +55,7 @@ When using the `workbench` command, your package will be setup with conventions 
 
 Let's explore this structure further. The `src/Vendor/Package` directory is the home of all of your package's classes, including the `ServiceProvider`. The `config`, `lang`, `migrations`, and `views` directories, as you might guess, contain the corresponding resources for your package. Packages may have any of these resources, just like "regular" applications.
 
-<a name="service-providers"></a>
-## Service Providers
+## Service Providers {#service-providers}
 
 Service providers are simply bootstrap classes for packages. By default, they contain two methods: `boot` and `register`. Within these methods you may do anything you like: include a routes file, register bindings in the IoC container, attach to events, or anything else you wish to do.
 
@@ -71,8 +67,7 @@ When creating a package using the `workbench`, the `boot` command will already c
 
 This method allows Laravel to know how to properly load the views, configuration, and other resources for your application. In general, there should be no need for you to change this line of code, as it will setup the package using the workbench conventions.
 
-<a name="package-conventions"></a>
-## Package Conventions
+## Package Conventions {#package-conventions}
 
 When utilizing resources from a package, such as configuration items or views, a double-colon syntax will generally be used:
 
@@ -86,8 +81,7 @@ When utilizing resources from a package, such as configuration items or views, a
 
 > **Note:** If your package contains migrations, consider prefixing the migration name with your package name to avoid potential class name conflicts with other packages.
 
-<a name="development-workflow"></a>
-## Development Workflow
+## Development Workflow {#development-workflow}
 
 When developing a package, it is useful to be able to develop within the context of an application, allowing you to easily view and experiment with your templates, etc. So, to get started, install a fresh copy of the Laravel framework, then use the `workbench` command to create your package structure.
 
@@ -95,8 +89,7 @@ After the `workbench` command has created your package. You may `git init` from 
 
 Since your packages are in the `workbench` directory, you may be wondering how Composer knows to autoload your package's files. When the `workbench` directory exists, Laravel will intelligently scan it for packages, loading their Composer autoload files when the application starts!
 
-<a name="package-routing"></a>
-## Package Routing
+## Package Routing {#package-routing}
 
 In prior versions of Laravel, a `handles` clause was used to specify which URIs a package could respond to. However, in Laravel 4, a package may respond to any URI. To load a routes file for your package, simply `include` it from within your service provider's `boot` method.
 
@@ -111,8 +104,7 @@ In prior versions of Laravel, a `handles` clause was used to specify which URIs 
 
 > **Note:** If your package is using controllers, you will need to make sure they are properly configured in your `composer.json` file's auto-load section.
 
-<a name="package-configuration"></a>
-## Package Configuration
+## Package Configuration {#package-configuration}
 
 Some packages may require configuration files. These files should be defined in the same way as typical application configuration files. And, when using the default `$this->package` method of registering resources in your service provider, may be accessed using the usual "double-colon" syntax:
 
@@ -138,8 +130,7 @@ When this command is executed, the configuration files for your application will
 
 > **Note:** The developer may also create environment specific configuration files for your package by placing them in `app/config/packages/vendor/package/environment`.
 
-<a name="package-migrations"></a>
-## Package Migrations
+## Package Migrations {#package-migrations}
 
 You may easily create and run migrations for any of your packages. To create a migration for a package in the workbench, use the `--bench` option:
 
@@ -157,8 +148,7 @@ To run migrations for a finished package that was installed via Composer into th
 
 	php artisan migrate --package="vendor/package"
 
-<a name="package-assets"></a>
-## Package Assets
+## Package Assets {#package-assets}
 
 Some packages may have assets such as JavaScript, CSS, and images. However, we are unable to link to assets in the `vendor` or `workbench` directories, so we need a way to move these assets into the `public` directory of our application. The `asset:publish` command will take care of this for you:
 
@@ -174,8 +164,7 @@ If the package is still in the `workbench`, use the `--bench` directive:
 
 This command will move the assets into the `public/packages` directory according to the vendor and package name. So, a package named `userscape/kudos` would have its assets moved to `public/packages/userscape/kudos`. Using this asset publishing convention allows you to safely code asset paths in your package's views.
 
-<a name="publishing-packages"></a>
-## Publishing Packages
+## Publishing Packages {#publishing-packages}
 
 When your package is ready to publish, you should submit the package to the [Packagist](http://packagist.org) repository. If the package is specific to Laravel, consider adding a `laravel` tag to your package's `composer.json` file.
 

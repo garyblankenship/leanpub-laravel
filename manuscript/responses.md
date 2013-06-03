@@ -6,8 +6,7 @@
 - [View Composers](#view-composers)
 - [Special Responses](#special-responses)
 
-<a name="basic-responses"></a>
-## Basic Responses
+## Basic Responses {#basic-responses}
 
 **Returning Strings From Routes**
 
@@ -32,8 +31,7 @@ A `Response` instance inherits from the `Symfony\Component\HttpFoundation\Respon
 
 	return Response::make($content)->withCookie($cookie);
 
-<a name="redirects"></a>
-## Redirects
+## Redirects {#redirects}
 
 **Returning A Redirect**
 
@@ -63,8 +61,7 @@ A `Response` instance inherits from the `Symfony\Component\HttpFoundation\Respon
 
 	return Redirect::action('UserController@profile', array('user' => 1));
 
-<a name="views"></a>
-## Views
+## Views {#views}
 
 Views typically contain the HTML of your application and provide a convenient way of separating your controller and domain logic from your presentation logic. Views are stored in the `app/views` directory.
 
@@ -116,8 +113,7 @@ The sub-view can then be rendered from the parent view:
 		</body>
 	</html>
 
-<a name="view-composers"></a>
-## View Composers
+## View Composers {#view-composers}
 
 View composers are callbacks or class methods that are called when a view is created. If you have data that you want bound to a given view each time that view is created throughout your application, a view composer can organize that code into a single location. Therefore, view composers may function like "view models" or "presenters".
 
@@ -154,8 +150,7 @@ A view composer class should be defined like so:
 
 Note that there is no convention on where composer classes may be stored. You are free to store them anywhere as long as they can be autoloaded using the directives in your `composer.json` file.
 
-<a name="special-responses"></a>
-## Special Responses
+## Special Responses {#special-responses}
 
 **Creating A JSON Response**
 

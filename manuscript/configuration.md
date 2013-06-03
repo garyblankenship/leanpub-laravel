@@ -1,11 +1,10 @@
 # Configuration {#configuration}
 
-- [Introduction](#introduction)
+- [Introduction](#configuration-introduction)
 - [Environment Configuration](#environment-configuration)
 - [Maintenance Mode](#maintenance-mode)
 
-<a name="introduction"></a>
-## Introduction
+## Introduction {#configuration-introduction}
 
 All of the configuration files for the Laravel framework are stored in the `app/config` directory. Each option in every file is documented, so feel free to look through the files and get familiar with the options available to you.
 
@@ -25,8 +24,7 @@ Notice that "dot" style syntax may be used to access values in the various files
 
 	Config::set('database.default', 'sqlite');
 
-<a name="environment-configuration"></a>
-## Environment Configuration
+## Environment Configuration {#environment-configuration}
 
 It is often helpful to have different configuration values based on the environment the application is running in. For example, you may wish to use a different cache driver on your local development machine than on the production server. It is easy to accomplish this using environment based configuration.
 
@@ -67,8 +65,7 @@ You may access the current application environment via the `environment` method:
 
 	$environment = App::environment();
 
-<a name="maintenance-mode"></a>
-## Maintenance Mode
+## Maintenance Mode {#maintenance-mode}
 
 When your application is in maintenance mode, a custom view will be displayed for all routes into your application. This makes it easy to "disable" your application while it is updating. A call to the `App::down` method is already present in your `app/start/global.php` file. The response from this method will be sent to users when your application is in maintenance mode.
 

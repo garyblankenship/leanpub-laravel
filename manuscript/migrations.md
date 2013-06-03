@@ -1,18 +1,16 @@
 # Migrations & Seeding {#migrations}
 
-- [Introduction](#introduction)
+- [Introduction](#migrations-introduction)
 - [Creating Migrations](#creating-migrations)
 - [Running Migrations](#running-migrations)
 - [Rolling Back Migrations](#rolling-back-migrations)
 - [Database Seeding](#database-seeding)
 
-<a name="introduction"></a>
-## Introduction
+## Introduction {#migrations-introduction}
 
 Migrations are a type of version control for your database. They allow a team to modify the database schema and stay up to date on the current schema state. Migrations are typically paired with the [Schema Builder](#schema) to easily manage your application's scheme.
 
-<a name="creating-migrations"></a>
-## Creating Migrations
+## Creating Migrations {#creating-migrations}
 
 To create a migration, you may use the `migrate:make` command on the Artisan CLI:
 
@@ -30,8 +28,7 @@ The `--table` and `--create` options may also be used to indicate the name of th
 
 	php artisan migrate:make create_users_table --table=users --create
 
-<a name="running-migrations"></a>
-## Running Migrations
+## Running Migrations {#running-migrations}
 
 **Running All Outstanding Migrations**
 
@@ -47,8 +44,7 @@ The `--table` and `--create` options may also be used to indicate the name of th
 
 > **Note:** If you receive a "class not found" error when running migrations, try running the `composer update` command.
 
-<a name="rolling-back-migrations"></a>
-## Rolling Back Migrations
+## Rolling Back Migrations {#rolling-back-migrations}
 
 **Rollback The Last Migration Operation**
 
@@ -64,8 +60,7 @@ The `--table` and `--create` options may also be used to indicate the name of th
 
 	php artisan migrate:refresh --seed
 
-<a name="database-seeding"></a>
-## Database Seeding
+## Database Seeding {#database-seeding}
 
 Laravel also includes a simple way to seed your database with test data using seed classes. All seed classes are stored in `app/database/seeds`. Seed classes may have any name you wish, but probably should follow some sensible convention, such as `UserTableSeeder`, etc. By default, a `DatabaseSeeder` class is defined for you. From this class, you may use the `call` method to run other seed classes, allowing you to control the seeding order.
 

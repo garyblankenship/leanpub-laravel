@@ -1,17 +1,15 @@
 # Mail {#mail}
 
-- [Configuration](#configuration)
-- [Basic Usage](#basic-usage)
+- [Configuration](#mail-configuration)
+- [Basic Usage](#mail-basic-usage)
 - [Embedding Inline Attachments](#embedding-inline-attachments)
 - [Queueing Mail](#queueing-mail)
 
-<a name="configuration"></a>
-## Configuration
+## Configuration {#mail-configuration}
 
 Laravel provides a clean, simple API over the popular [SwiftMailer](http://swiftmailer.org) library. The mail configuration file is `app/config/mail.php`, and contains options allowing you to change your SMTP host, port, and credentials, as well as set a global `from` address for all messages delivered by the library. You may use any SMTP server you wish. If you wish to use the PHP `mail` function to send mail, you may change the `driver` to `mail` in the configuration file. A `sendmail` driver is also available.
 
-<a name="basic-usage"></a>
-## Basic Usage
+## Basic Usage {#mail-basic-usage}
 
 The `Mail::send` method may be used to send an e-mail message:
 
@@ -49,8 +47,7 @@ When attaching files to a message, you may also specify a MIME type and / or a d
 
 > **Note:** The message instance passed to a `Mail::send` Closure extends the SwiftMailer message class, allowing you to call any method on that class to build your e-mail messages.
 
-<a name="embedding-inline-attachments"></a>
-## Embedding Inline Attachments
+## Embedding Inline Attachments {#embedding-inline-attachments}
 
 Embedding inline images into your e-mails is typically cumbersome; however, Laravel provides a convenient way to attach images to your e-mails and retrieving the appropriate CID.
 
@@ -72,8 +69,7 @@ Embedding inline images into your e-mails is typically cumbersome; however, Lara
 
 Note that the `$message` variable is always passed to e-mail views by the `Mail` class.
 
-<a name="queueing-mail"></a>
-## Queueing Mail
+## Queueing Mail {#queueing-mail}
 
 Since sending e-mail messages can drastically lengthen the response time of your application, many developers choose to queue e-mail messages for background sending. Laravel makes this easy using its built-in [unified queue API](#queues). To queue a mail message, simply use the `queue` method on the `Mail` class:
 

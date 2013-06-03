@@ -1,6 +1,6 @@
 # Schema Builder {#schema}
 
-- [Introduction](#introduction)
+- [Introduction](#schema-introduction)
 - [Creating & Dropping Tables](#creating-and-dropping-tables)
 - [Adding Columns](#adding-columns)
 - [Renaming Columns](#renaming-columns)
@@ -11,13 +11,11 @@
 - [Dropping Indexes](#dropping-indexes)
 - [Storage Engines](#storage-engines)
 
-<a name="introduction"></a>
-## Introduction
+## Introduction {#schema-introduction}
 
 The Laravel `Schema` class provides a database agnostic way of manipulating tables. It works well with all of the databases supported by Laravel, and has a unified API across all of these systems.
 
-<a name="creating-and-dropping-tables"></a>
-## Creating & Dropping Tables
+## Creating & Dropping Tables {#creating-and-dropping-tables}
 
 To create a new database table, the `Schema::create` method is used:
 
@@ -45,8 +43,7 @@ To drop a table, you may use the `Schema::drop` method:
 
 	Schema::dropIfExists('users');
 
-<a name="adding-columns"></a>
-## Adding Columns
+## Adding Columns {#adding-columns}
 
 To update an existing table, we will use the `Schema::table` method:
 
@@ -87,8 +84,7 @@ If you are using the MySQL database, you may use the `after` method to specify t
 
 	$table->string('name')->after('email');
 
-<a name="renaming-columns"></a>
-## Renaming Columns
+## Renaming Columns {#renaming-columns}
 
 To rename a column, you may use the `renameColumn` method on the Schema builder:
 
@@ -101,8 +97,7 @@ To rename a column, you may use the `renameColumn` method on the Schema builder:
 
 > **Note:** Renaming `enum` column types is not supported.
 
-<a name="dropping-columns"></a>
-## Dropping Columns
+## Dropping Columns {#dropping-columns}
 
 **Dropping A Column From A Database Table**
 
@@ -118,8 +113,7 @@ To rename a column, you may use the `renameColumn` method on the Schema builder:
 		$table->dropColumn('votes', 'avatar', 'location');
 	});
 
-<a name="checking-existence"></a>
-## Checking Existence
+## Checking Existence {#checking-existence}
 
 You may easily check for the existence of a table or column using the `hasTable` and `hasColumn` methods:
 
@@ -137,8 +131,7 @@ You may easily check for the existence of a table or column using the `hasTable`
 		//
 	}
 
-<a name="adding-indexes"></a>
-## Adding Indexes
+## Adding Indexes {#adding-indexes}
 
 The schema builder supports several types of indexes. There are two ways to add them. First, you may fluently define them on a column definition, or you may add them separately:
 
@@ -155,8 +148,7 @@ Command  | Description
 `$table->unique('email');`  |  Adding a unique index
 `$table->index('state');`  |  Adding a basic index
 
-<a name="foreign-keys"></a>
-## Foreign Keys
+## Foreign Keys {#foreign-keys}
 
 Laravel also provides support for adding foreign key constraints to your tables:
 
@@ -176,8 +168,7 @@ To drop a foreign key, you may use the `dropForeign` method. A similar naming co
 
 	$table->dropForeign('posts_user_id_foreign');
 
-<a name="dropping-indexes"></a>
-## Dropping Indexes
+## Dropping Indexes {#dropping-indexes}
 
 To drop an index you must specify the index's name. Laravel assigns a reasonable name to the indexes by default. Simply concatenate the table name, the names of the column in the index, and the index type. Here are some examples:
 
@@ -187,8 +178,7 @@ Command  | Description
 `$table->dropUnique('users_email_unique');`  |  Dropping a unique index from the "users" table
 `$table->dropIndex('geo_state_index');`  |  Dropping a basic index from the "geo" table
 
-<a name="storage-engines"></a>
-## Storage Engines
+## Storage Engines {#storage-engines}
 
 To set the storage engine for a table, set the `engine` property on the schema builder:
 

@@ -1,6 +1,6 @@
 # Security {#security}
 
-- [Configuration](#configuration)
+- [Configuration](#security-configuration)
 - [Storing Passwords](#storing-passwords)
 - [Authenticating Users](#authenticating-users)
 - [Protecting Routes](#protecting-routes)
@@ -8,8 +8,7 @@
 - [Password Reminders & Reset](#password-reminders-and-reset)
 - [Encryption](#encryption)
 
-<a name="configuration"></a>
-## Configuration
+## Configuration {#security-configuration}
 
 Laravel aims to make implementing authentication very simple. In fact, almost everything is configured for you out of the box. The authentication configuration file is located at `app/config/auth.php`, which contains several well documented options for tweaking the behavior of the authentication facilities.
 
@@ -17,8 +16,7 @@ By default, Laravel includes a `User` model in your `app/models` directory which
 
 If your application is not using Eloquent, you may use the `database` authentication driver which uses the Laravel query builder.
 
-<a name="storing-passwords"></a>
-## Storing Passwords
+## Storing Passwords {#storing-passwords}
 
 The Laravel `Hash` class provides secure Bcrypt hashing:
 
@@ -40,8 +38,7 @@ The Laravel `Hash` class provides secure Bcrypt hashing:
 		$hashed = Hash::make('secret');
 	}
 
-<a name="authenticating-users"></a>
-## Authenticating Users
+## Authenticating Users {#authenticating-users}
 
 To log a user into your application, you may use the `Auth::attempt` method.
 
@@ -115,8 +112,7 @@ You may also use the `once` method to log a user into the application for a sing
 
 	Auth::logout();
 
-<a name="protecting-routes"></a>
-## Protecting Routes
+## Protecting Routes {#protecting-routes}
 
 Route filters may be used to allow only authenticated users to access a given route. Laravel provides the `auth` filter by default, and it is defined in `app/filters.php`.
 
@@ -142,8 +138,7 @@ Laravel provides an easy method of protecting your application from cross-site r
         return 'You gave a valid CSRF token!';
     }));
 
-<a name="http-basic-authentication"></a>
-## HTTP Basic Authentication
+## HTTP Basic Authentication {#http-basic-authentication}
 
 HTTP Basic Authentication provides a quick way to authenticate users of your application without setting up a dedicated "login" page. To get started, attach the `auth.basic` filter to your route:
 
@@ -167,8 +162,7 @@ You may also use HTTP Basic Authentication without setting a user identifier coo
 		return Auth::onceBasic();
 	});
 
-<a name="password-reminders-and-reset"></a>
-## Password Reminders & Reset
+## Password Reminders & Reset {#password-reminders-and-reset}
 
 ### Sending Password Reminders
 
@@ -266,8 +260,7 @@ If the password reset is successful, the `User` instance and the password will b
 
 Also, similarly to the `remind` method, if an error occurs while resetting the password, the `reset` method will return a `Redirect` to the current URI with an `error` and `reason`.
 
-<a name="encryption"></a>
-## Encryption
+## Encryption {#encryption}
 
 Laravel provides facilities for strong AES-256 encryption via the mcrypt PHP extension:
 

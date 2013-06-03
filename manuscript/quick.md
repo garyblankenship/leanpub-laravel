@@ -7,15 +7,13 @@
 - [Eloquent ORM](#eloquent-orm)
 - [Displaying Data](#displaying-data)
 
-<a name="installation"></a>
-## Installation
+## Installation {#installation}
 
 To install the Laravel framework, download a copy of the [repository from Github](https://github.com/laravel/laravel/archive/master.zip). Next, after [installing Composer](http://getcomposer.org), run the `composer install` command in the root of your project directory. This command will download and install the framework's dependencies.
 
 After installing the framework, take a glance around the project to familiarize yourself with the directory structure. The `app` directory contains folders such as `views`, `controllers`, and `models`. Most of your application's code will reside somewhere in this directory. You may also wish to explore the `app/config` directory and the configuration options that are available to you.
 
-<a name="routing"></a>
-## Routing
+## Routing {#routing}
 
 To get started, let's create our first route. In Laravel, the simplest route is a route to a Closure. Pop open the `app/routes.php` file and add the following route to the bottom of the file:
 
@@ -32,8 +30,7 @@ Routes can also be attached to controller classes. For example:
 
 This route informs the framework that requests to the `/users` route should call the `getIndex` method on the `UserController` class. For more information on controller routing, check out the [controller documentation](#controllers).
 
-<a name="creating-a-view"></a>
-## Creating A View
+## Creating A View {#creating-a-view}
 
 Next, we'll create a simple view to display our user data. Views live in the `app/views` directory and contain the HTML of your application. We're going to place two new views in this directory: `layout.blade.php` and `users.blade.php`. First, let's create our `layout.blade.php` file:
 
@@ -64,8 +61,7 @@ Now that we have our views, let's return it from our `/users` route. Instead of 
 
 Wonderful! Now you have setup a simple view that extends a layout. Next, let's start working on our database layer.
 
-<a name="creating-a-migration"></a>
-## Creating A Migration
+## Creating A Migration {#creating-a-migration}
 
 To create a table to hold our data, we'll use the Laravel migration system. Migrations let you expressively define modifications to your database, and easily share them with the rest of your team.
 
@@ -101,8 +97,7 @@ Next, we can run our migrations from our terminal using the `migrate` command. S
 
 If you wish to rollback a migration, you may issue the `migrate:rollback` command. Now that we have a database table, let's start pulling some data!
 
-<a name="eloquent-orm"></a>
-## Eloquent ORM
+## Eloquent ORM {#eloquent-orm}
 
 Laravel ships with a superb ORM: Eloquent. If you have used the Ruby on Rails framework, you will find Eloquent familiar, as it follows the ActiveRecord ORM style of database interaction.
 
@@ -127,8 +122,7 @@ Let's walk through this route. First, the `all` method on the `User` model will 
 
 Awesome. Now we're ready to display the users in our view!
 
-<a name="displaying-data"></a>
-## Displaying Data
+## Displaying Data {#displaying-data}
 
 Now that we have made the `users` available to our view. We can display them like so:
 

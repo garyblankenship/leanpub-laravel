@@ -1,17 +1,15 @@
 # Localization {#localization}
 
-- [Introduction](#introduction)
+- [Introduction](#localization-introduction)
 - [Language Files](#language-files)
-- [Basic Usage](#basic-usage)
+- [Basic Usage](#localization-basic-usage)
 - [Pluralization](#pluralization)
 
-<a name="introduction"></a>
-## Introduction
+## Introduction {#localization-introduction}
 
 The Laravel `Lang` class provides a convenient way of retrieving strings in various languages, allowing you to easily support multiple languages within your application.
 
-<a name="language-files"></a>
-## Language Files
+## Language Files {#language-files}
 
 Language strings are stored in files within the `app/lang` directory. Within this directory there should be a subdirectory for each language supported by the application.
 
@@ -38,8 +36,7 @@ The default language for your application is stored in the `app/config/app.php` 
 
 	App::setLocale('es');
 
-<a name="basic-usage"></a>
-## Basic Usage
+## Basic Usage {#localization-basic-usage}
 
 **Retrieving Lines From A Language File**
 
@@ -66,8 +63,7 @@ Then, pass a second argument of replacements to the `Lang::get` method:
 		//
 	}
 
-<a name="pluralization"></a>
-## Pluralization
+## Pluralization {#pluralization}
 
 Pluralization is a complex problem, as different languages have a variety of complex rules for pluralization. You may easily manage this in your language files. By using a "pipe" character, you may separate the singular and plural forms of a string:
 
