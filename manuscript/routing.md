@@ -82,6 +82,15 @@ Often, you will need to generate URLs to your routes, you may do so using the `U
 	})
 	->where('id', '[0-9]+');
 
+Of course, you may pass an array of constraints when necessary:
+
+  Route::get('user/{id}/{name}', function($id, $name)
+  {
+    //
+  })
+  ->where(array('id' => '[0-9]+', 'name' => '[a-z]+'))
+
+
 ## Route Filters {#route-filters}
 
 Route filters provide a convenient way of limiting access to a given route, which is useful for creating areas of your site which require authentication. There are several filters included in the Laravel framework, including an `auth` filter, an `auth.basic` filter, a `guest` filter, and a `csrf`filter. These are located in the `app/filters.php` file.

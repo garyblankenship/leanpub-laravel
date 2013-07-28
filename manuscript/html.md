@@ -23,13 +23,19 @@ By default, a `POST` method will be assumed; however, you are free to specify an
 
 	echo Form::open(array('url' => 'foo/bar', 'method' => 'put'))
 
-> **Note:** Since HTML forms only support `POST`, `PUT` and `DELETE` methods will be spoofed by automatically adding a `_method` hidden field to your form.
+> **Note:** Since HTML forms only support `POST` and `GET`, `PUT` and `DELETE` methods will be spoofed by automatically adding a `_method` hidden field to your form.
 
 You may also open forms that point to named routes or controller actions:
 
 	echo Form::open(array('route' => 'route.name'))
 
 	echo Form::open(array('action' => 'Controller@method'))
+
+You may pass in route parameters as well:
+
+  echo Form::open(array('route' => array('route.name', $user->id)))
+
+  echo Form::open(array('action' => array('Controller@method', $user->id)))
 
 If your form is going to accept file uploads, add a `files` option to your array:
 
@@ -95,6 +101,11 @@ This allows you to quickly build forms that not only bind to model values, but e
 **Generating A Password Input**
 
 	echo Form::password('password');
+
+**Generating Other Inputs**
+
+  echo Form::email($name, $value = null, $attributes = array());
+  echo Form::file($name, $attributes = array());
 
 ## Checkboxes and Radio Buttons {#checkboxes-and-radio-buttons}
 

@@ -16,6 +16,7 @@
     - [Events](#events)
     - [Facades](#facades)
     - [Forms & HTML](#html)
+    - [Helpers](#helpers)
     - [IoC Container](#ioc)
     - [Localization](#localization)
     - [Mail](#mail)

@@ -150,6 +150,7 @@ Below is a list of all available validation rules and their function:
 - [Required](#rule-required)
 - [Required If](#rule-required-if)
 - [Required With](#rule-required-with)
+- [Required Without](#rule-required-without)
 - [Same](#rule-same)
 - [Size](#rule-size)
 - [Unique (Database)](#rule-unique)
@@ -280,6 +281,10 @@ The field under validation must be present if the _field_ field is equal to _val
 #### required_with:_foo_,_bar_,... {#rule-required-with}
 
 The field under validation must be present _only if_ the other specified fields are present.
+
+#### required_without:_foo_,_bar_,... {#rule-required-without}
+
+The field under validation must be present _only when_ the other specified fields are not present.
 
 #### same:_field_ {#rule-same}
 

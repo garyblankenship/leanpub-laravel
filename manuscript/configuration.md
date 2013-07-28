@@ -24,6 +24,8 @@ Notice that "dot" style syntax may be used to access values in the various files
 
 	Config::set('database.default', 'sqlite');
 
+Configuration values that are set at run-time are only set for the current request, and will not be carried over to subsequent requests.
+
 ## Environment Configuration {#environment-configuration}
 
 It is often helpful to have different configuration values based on the environment the application is running in. For example, you may wish to use a different cache driver on your local development machine than on the production server. It is easy to accomplish this using environment based configuration.
@@ -82,4 +84,4 @@ To show a custom view when your application is in maintenance mode, you may add 
 	App::down(function()
 	{
 		return Response::view('maintenance', array(), 503);
-	})
+	});

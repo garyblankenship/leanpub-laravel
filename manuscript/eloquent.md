@@ -88,6 +88,10 @@ Of course, you may also use the query builder aggregate functions.
 
 	$count = User::where('votes', '>', 100)->count();
 
+If you are unable to generate the query you need via the fluent interface, feel free to use `whereRaw`:
+
+  $users = User::whereRaw('age > ? and votes = 100', array(25))->get();
+
 ## Mass Assignment {#mass-assignment}
 
 When creating a new model, you pass an array of attributes to the model constructor. These attributes are then assigned to the model via mass-assignment. This is convenient; however, can be a **serious** security concern when blindly passing user input into a model. If user input is blindly passed into a model, the user is free to modify **any** and **all** of the model's attributes. For this reason, all Eloquent models protect against mass-assignment by default.
@@ -196,7 +200,7 @@ If you wish to simply update the timestamps on a model, you may use the `touch` 
 
 ## Timestamps {#timestamps}
 
-By default, Eloquent will maintain the `created_at` and `updated_at` columns on your database table automatically. Simply add these `datetime` columns to your table and Eloquent will take care of the rest. If you do not wish for Eloquent to maintain these columns, add the following property to your model:
+By default, Eloquent will maintain the `created_at` and `updated_at` columns on your database table automatically. Simply add these `timestamp` columns to your table and Eloquent will take care of the rest. If you do not wish for Eloquent to maintain these columns, add the following property to your model:
 
 **Disabling Auto Timestamps**
 
@@ -341,6 +345,18 @@ To define the inverse of the relationship on the `Phone` model, we use the `belo
 		}
 
 	}
+
+In the example above, Eloquent will look for a `user_id` column on the `phones` table. If you would like to define a different foreign key column, you may pass it as the second argument to the `belongsTo` method:
+
+  class Phone extends Eloquent {
+
+    public function user()
+    {
+      return $this->belongsTo('User', 'custom_key');
+    }
+
+  }
+
 
 ### One To Many {#one-to-many}
 
@@ -605,6 +621,17 @@ You will often need to insert new related models. For example, you may wish to i
 
 In this example, the `post_id` field will automatically be set on the inserted comment.
 
+### Associating Models (Belongs To)
+
+When updating a `belongsTo` relationship, you may use the `associate` method. This method will set the foreign key on the child model:
+
+  $account = Account::find(10);
+
+  $user->account()->associate($account);
+
+  $user->save();
+
+
 ### Inserting Related Models (Many To Many)
 
 You may also insert related models when working with many-to-many relations. Let's continue using our `User` and `Role` models as examples. We can easily attach new roles to a user using the `attach` method:
@@ -809,6 +836,14 @@ You may customize which fields are automatically mutated, and even completely di
 	}
 
 When a column is considered a date, you may set its value to a UNIX timetamp, date string (`Y-m-d`), date-time string, and of course a `DateTime` / `Carbon` instance.
+
+To totally disable date mutations, simply return an empty array from the `getDates` method:
+
+  public function getDates()
+  {
+    return array();
+  }
+
 
 ## Model Events {#model-events}
 
