@@ -1,5 +1,5 @@
-leanpub-laravel
-===============
+Laravel 4 Ebooks
+================
 
 Laravel docs formatted for Leanpub
 
