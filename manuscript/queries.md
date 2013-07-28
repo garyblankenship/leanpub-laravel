@@ -182,10 +182,10 @@ Sometimes you may need to use a raw expression in a query. These expressions wil
 **Using A Raw Expression**
 
 	$users = DB::table('users')
-	                     ->select(DB::raw('count(*) as user_count, status'))
-	                     ->where('status', '<>', 1)
-	                     ->groupBy('status')
-	                     ->get();
+     ->select(DB::raw('count(*) as user_count, status'))
+     ->where('status', '<>', 1)
+     ->groupBy('status')
+     ->get();
 
 **Incrementing or decrementing a value of a column**
 
@@ -200,7 +200,6 @@ Sometimes you may need to use a raw expression in a query. These expressions wil
 You may also specify additional columns to update:
 
   DB::table('users')->increment('votes', 1, array('name' => 'John'));
-
 
 ## Inserts {#inserts}
 

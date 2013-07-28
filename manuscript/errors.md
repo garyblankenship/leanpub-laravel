@@ -81,7 +81,6 @@ An array of contextual data may also be passed to the log methods:
 
   Log::info('Log message', array('context' => 'Other helpful information'));
 
-
 Monolog has a variety of additional handlers you may use for logging. If needed, you may access the underlying Monolog instance being used by Laravel:
 
 	$monolog = Log::getMonolog();
